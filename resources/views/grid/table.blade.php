@@ -1,71 +1,67 @@
-<div class="box grid-box">
-    @if(isset($title))
-    <div class="box-header with-border">
-        <h3 class="box-title"> {{ $title }}</h3>
+<div class="card p-0">
+  @if(isset($title))
+    <div class="card-header">
+      <h3 class="card-title"> {{ $title }}</h3>
     </div>
-    @endif
+  @endif
 
-    @if ( $grid->showTools() || $grid->showExportBtn() || $grid->showCreateBtn() )
-    <div class="box-header with-border">
-        <div class="pull-right">
-            {!! $grid->renderColumnSelector() !!}
-            {!! $grid->renderExportButton() !!}
-            {!! $grid->renderCreateButton() !!}
-        </div>
-        @if ( $grid->showTools() )
+  @if ( $grid->showTools() || $grid->showExportBtn() || $grid->showCreateBtn() )
+    <div class="card-header">
+      <div class="pull-right">
+        {!! $grid->renderColumnSelector() !!}
+        {!! $grid->renderExportButton() !!}
+        {!! $grid->renderCreateButton() !!}
+      </div>
+      @if ( $grid->showTools() )
         <div class="pull-left">
-            {!! $grid->renderHeaderTools() !!}
+          {!! $grid->renderHeaderTools() !!}
         </div>
-        @endif
+      @endif
     </div>
-    @endif
+  @endif
 
-    {!! $grid->renderFilter() !!}
+<!-- /.box-header -->
+  <div class="card-body p-0 table-responsive">
+    <table class="table table-striped table-bordered" id="{{ $grid->tableID }}">
+      <thead>
+      <tr>
+        @foreach($grid->visibleColumns() as $column)
+          <th {!! $column->formatHtmlAttributes() !!}>{!! $column->getLabel() !!}{!! $column->renderHeader() !!}</th>
+        @endforeach
+      </tr>
+      </thead>
 
-    {!! $grid->renderHeader() !!}
+      @if ($grid->hasQuickCreate())
+        {!! $grid->renderQuickCreate() !!}
+      @endif
 
-    <!-- /.box-header -->
-    <div class="box-body table-responsive no-padding">
-        <table class="table table-hover grid-table" id="{{ $grid->tableID }}">
-            <thead>
-                <tr>
-                    @foreach($grid->visibleColumns() as $column)
-                    <th {!! $column->formatHtmlAttributes() !!}>{!! $column->getLabel() !!}{!! $column->renderHeader() !!}</th>
-                    @endforeach
-                </tr>
-            </thead>
+      <tbody>
 
-            @if ($grid->hasQuickCreate())
-                {!! $grid->renderQuickCreate() !!}
-            @endif
+      @if($grid->rows()->isEmpty() && $grid->showDefineEmptyPage())
+        @include('admin::grid.empty-grid')
+      @endif
 
-            <tbody>
+      @foreach($grid->rows() as $row)
+        <tr {!! $row->getRowAttributes() !!}>
+          @foreach($grid->visibleColumnNames() as $name)
+            <td {!! $row->getColumnAttributes($name) !!}>
+              {!! $row->column($name) !!}
+            </td>
+          @endforeach
+        </tr>
+      @endforeach
+      </tbody>
 
-                @if($grid->rows()->isEmpty() && $grid->showDefineEmptyPage())
-                    @include('admin::grid.empty-grid')
-                @endif
+      {!! $grid->renderTotalRow() !!}
 
-                @foreach($grid->rows() as $row)
-                <tr {!! $row->getRowAttributes() !!}>
-                    @foreach($grid->visibleColumnNames() as $name)
-                    <td {!! $row->getColumnAttributes($name) !!}>
-                        {!! $row->column($name) !!}
-                    </td>
-                    @endforeach
-                </tr>
-                @endforeach
-            </tbody>
+    </table>
 
-            {!! $grid->renderTotalRow() !!}
+  </div>
 
-        </table>
+  {!! $grid->renderFooter() !!}
 
-    </div>
-
-    {!! $grid->renderFooter() !!}
-
-    <div class="box-footer clearfix">
-        {!! $grid->paginator() !!}
-    </div>
-    <!-- /.box-body -->
+  <div class="card-footer">
+    {!! $grid->paginator() !!}
+  </div>
+  <!-- /.box-body -->
 </div>
