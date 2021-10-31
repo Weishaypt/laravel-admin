@@ -12,19 +12,19 @@ class Number extends Text
     {
         $this->default($this->default);
 
-        $this->script = <<<EOT
+        /*        $this->script = <<<EOT
 
-$('{$this->getElementClassSelector()}:not(.initialized)')
-    .addClass('initialized')
-    .bootstrapNumber({
-        upClass: 'success',
-        downClass: 'primary',
-        center: true
-    });
+        $('{$this->getElementClassSelector()}:not(.initialized)')
+            .addClass('initialized')
+            .bootstrapNumber({
+                upClass: 'success',
+                downClass: 'primary',
+                center: true
+            });
 
-EOT;
+        EOT;
 
-        $this->prepend('')->defaultAttribute('style', 'width: 100px');
+                $this->prepend('')->defaultAttribute('style', 'width: 100px');*/
 
         return parent::render();
     }

@@ -68,16 +68,16 @@ trait HasAssets
         'vendor/laravel-admin/nestable/nestable.css',
         'vendor/laravel-admin/toastr/build/toastr.min.css',
         'vendor/laravel-admin/bootstrap3-editable/css/bootstrap-editable.css',
-        'vendor/laravel-admin/bundle.css',
-        'vendor/laravel-admin/app.css',
+        'vendor/laravel-admin/admin/bundle.css',
+        'vendor/laravel-admin/admin/app.css',
     ];
 
     /**
      * @var array
      */
     public static $baseJs = [
-        'vendor/laravel-admin/bundle.js',
-        'vendor/laravel-admin/app.min.js',
+        'vendor/laravel-admin/admin/bundle.js',
+        'vendor/laravel-admin/admin/app.min.js',
         'vendor/laravel-admin/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js',
         'vendor/laravel-admin/jquery-pjax/jquery.pjax.js',
         'vendor/laravel-admin/nprogress/nprogress.js',

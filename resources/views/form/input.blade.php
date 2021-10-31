@@ -19,7 +19,7 @@
             @endif
 
             @isset($btn)
-                <span class="input-group-btn">
+                <span class="input-group-text">
                   {!! $btn !!}
                 </span>
             @endisset
