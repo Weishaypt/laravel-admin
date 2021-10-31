@@ -1,8 +1,7 @@
-<div class="box box-info">
-    <div class="box-header with-border">
-        <h3 class="box-title">{{ $form->title() }}</h3>
-
-        <div class="box-tools">
+<div class="card">
+    <div class="card-header d-flex align-items-center justify-content-between">
+        <h3 class="box-title pull-left mb-0">{{ $form->title() }}</h3>
+        <div class="box-tools pull-right">
             {!! $form->renderTools() !!}
         </div>
     </div>
@@ -10,7 +9,7 @@
     <!-- form start -->
     {!! $form->open() !!}
 
-    <div class="box-body">
+    <div class="card-body">
 
         @if(!$tabObj->isEmpty())
             @include('admin::form.tab', compact('tabObj'))
@@ -36,7 +35,9 @@
     </div>
     <!-- /.box-body -->
 
-    {!! $form->renderFooter() !!}
+    <div class="card-footer">
+        {!! $form->renderFooter() !!}
+    </div>
 
     @foreach($form->getHiddenFields() as $field)
         {!! $field->render() !!}

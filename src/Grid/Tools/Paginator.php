@@ -84,8 +84,13 @@ class Paginator extends AbstractTool
         $parameters = collect($parameters)->flatMap(function ($parameter, $key) {
             return [$key => "<b>$parameter</b>"];
         });
-
-        return trans('admin.pagination.range', $parameters->all());
+        $trans = trans('admin.pagination.range', $parameters->all());
+        return <<<EOT
+<span>
+$trans
+</span>
+EOT;
+        ;
     }
 
     /**
@@ -99,8 +104,20 @@ class Paginator extends AbstractTool
             return '';
         }
 
-        return $this->paginationRanger().
-            $this->paginationLinks().
-            $this->perPageSelector();
+        $ranger = $this->paginationRanger();
+        $links = $this->paginationLinks();
+        $selector = $this->perPageSelector();
+
+        return <<<EOT
+<div>
+$ranger
+</div>
+<div class="">
+$selector
+</div>
+<div class="">
+$links
+</div>
+EOT;
     }
 }

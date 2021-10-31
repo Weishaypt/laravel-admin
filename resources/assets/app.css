@@ -9943,3 +9943,16 @@ small {
 .navigation .navigation-menu-body li {
   background: #080809;
 }
+
+.content-body {
+  overflow-x: hidden;
+}
+
+
+.hide {
+  display: none;
+}
+
+body.dark table tr {
+  background: #2c2d32 !important;
+}
