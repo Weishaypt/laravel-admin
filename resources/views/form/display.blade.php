@@ -1,12 +1,7 @@
-<div class="{{$viewClass['form-group']}}">
-    <label class="{{$viewClass['label']}} control-label">{{$label}}</label>
+<div class="row {{$viewClass['form-group']}}">
+    <label class="{{$viewClass['label']}} col-form-label">{{$label}}</label>
     <div class="{{$viewClass['field']}}">
-        <div class="box box-solid box-default no-margin">
-            <!-- /.box-header -->
-            <div class="box-body">
-                {!! $value !!}&nbsp;
-            </div><!-- /.box-body -->
-        </div>
+        <input value="{!! $value !!}" class="form-control" readonly>
 
         @include('admin::form.help-block')
 

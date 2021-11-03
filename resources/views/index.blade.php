@@ -51,6 +51,7 @@
       <div class="content" id="app">
         @yield('content')
       </div>
+      @include('admin::partials.footer')
       {!! Admin::script() !!}
       {!! Admin::html() !!}
     </div>
