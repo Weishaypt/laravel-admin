@@ -4,8 +4,6 @@
 
     <div class="{{$viewClass['field']}}">
 
-        @include('admin::form.error')
-
         <div class="input-group">
 
             @if ($prepend)
@@ -25,6 +23,8 @@
             @endisset
 
         </div>
+
+        @include('admin::form.error')
 
         @include('admin::form.help-block')
 
