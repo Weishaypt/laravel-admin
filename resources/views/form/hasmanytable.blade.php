@@ -5,8 +5,8 @@
 </style>
 
 <div class="row">
-    <div class="{{$viewClass['label']}}"><h4 class="pull-right">{{ $label }}</h4></div>
-    <div class="{{$viewClass['field']}}">
+    <div class="col-md-1"><h4 class="pull-right">{{ $label }}</h4></div>
+    <div class="col-md-11">
         <div id="has-many-{{$column}}" style="margin-top: 15px;">
             <table class="table table-has-many has-many-{{$column}}">
                 <thead>
