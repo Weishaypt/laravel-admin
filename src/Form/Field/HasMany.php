@@ -602,14 +602,32 @@ $('#has-many-{$this->column}').on('click', '.add', function () {
 });
 
 $('#has-many-{$this->column}').on('click', '.remove', function () {
-    var first_input_name = $(this).closest('.has-many-{$this->column}-form').find('input[name]:first').attr('name');
-    if (first_input_name.match('{$this->column}\\\[new_')) {
-        $(this).closest('.has-many-{$this->column}-form').remove();
-    } else {
-        $(this).closest('.has-many-{$this->column}-form').hide();
-        $(this).closest('.has-many-{$this->column}-form').find('.$removeClass').val(1);
-        $(this).closest('.has-many-{$this->column}-form').find('input').removeAttr('required');
-    }
+    Swal.fire({
+      title: 'Внимание!',
+      text: "Вы действительно хотите удалить?",
+      icon: 'danger',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Да, удалите это!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Удалено!',
+          'Запись удалена!',
+          'success'
+        )
+        
+        var first_input_name = $(this).closest('.has-many-{$this->column}-form').find('input[name]:first').attr('name');
+        if (first_input_name.match('{$this->column}\\\[new_')) {
+            $(this).closest('.has-many-{$this->column}-form').remove();
+        } else {
+            $(this).closest('.has-many-{$this->column}-form').hide();
+            $(this).closest('.has-many-{$this->column}-form').find('.$removeClass').val(1);
+            $(this).closest('.has-many-{$this->column}-form').find('input').removeAttr('required');
+        }
+      }
+    })
     return false;
 });
 

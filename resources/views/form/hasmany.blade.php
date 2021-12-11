@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label class="{{$viewClass['label']}} control-label"></label>
                     <div class="{{$viewClass['field']}}">
-                        <div class="remove btn btn-warning btn-sm pull-right"><i class="fa fa-trash">&nbsp;</i>{{ trans('admin.remove') }}</div>
+                        <div class="remove btn btn-danger btn-sm pull-right"><i class="fa fa-trash">&nbsp;</i>{{ trans('admin.remove') }}</div>
                     </div>
                 </div>
                 @endif
