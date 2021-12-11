@@ -1,5 +1,5 @@
 <form {!! $attributes !!}>
-    <div class="box-body fields-group">
+    <div class="card-body fields-group">
 
         @foreach($fields as $field)
             {!! $field->render() !!}
@@ -13,7 +13,7 @@
     
     <!-- /.box-body -->
     @if(count($buttons) > 0)
-    <div class="box-footer">
+    <div class="card-footer">
         <div class="col-md-{{$width['label']}}"></div>
 
         <div class="col-md-{{$width['field']}}">

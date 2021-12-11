@@ -610,7 +610,7 @@ $('#has-many-{$this->column}').on('click', '.remove', function () {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Да, удалите это!'
     }).then((result) => {
-      if (result.isConfirmed) {
+      if (result.value) {
         Swal.fire(
           'Удалено!',
           'Запись удалена!'
