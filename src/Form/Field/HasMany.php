@@ -605,7 +605,6 @@ $('#has-many-{$this->column}').on('click', '.remove', function () {
     Swal.fire({
       title: 'Внимание!',
       text: "Вы действительно хотите удалить?",
-      icon: 'danger',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
@@ -614,8 +613,7 @@ $('#has-many-{$this->column}').on('click', '.remove', function () {
       if (result.isConfirmed) {
         Swal.fire(
           'Удалено!',
-          'Запись удалена!',
-          'success'
+          'Запись удалена!'
         )
         
         var first_input_name = $(this).closest('.has-many-{$this->column}-form').find('input[name]:first').attr('name');
