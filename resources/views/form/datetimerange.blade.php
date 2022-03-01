@@ -2,7 +2,7 @@
 
     <label for="{{$id['start']}}" class="{{$viewClass['label']}} control-label">{{$label}}</label>
 
-    <div class="{{$viewClass['field']}} row">
+    <div class="{{$viewClass['field']}}">
         <div class="row">
             <div class="col-lg-12">
                 @if($errors->has($errorKey['start']))
@@ -34,7 +34,7 @@
                 @endif
 
                 <div class="input-group">
-                    <span class="input-group-text><i class="fa fa-calendar"></i></span>
+                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                     <input type="text"
                            name="{{$name['end']}}"
                            value="{{ old($column['end'], $value['end'] ?? null) }}"
