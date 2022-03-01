@@ -19,6 +19,7 @@
                            class="form-control {{$class['start']}}"
                            style="width: 160px"
                            autocomplete="off"
+                           type="datetime-local"
                             {!! $attributes !!}
                     />
                 </div>
@@ -41,6 +42,7 @@
                            class="form-control {{$class['end']}}"
                            style="width: 160px"
                            autocomplete="off"
+                           type="datetime-local"
                             {!! $attributes !!}
                     />
                 </div>
