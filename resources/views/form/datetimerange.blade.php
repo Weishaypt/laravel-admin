@@ -13,7 +13,7 @@
 
                 <div class="input-group">
                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                    <input type="text"
+                    <input
                            name="{{$name['start']}}"
                            value="{{ old($column['start'], $value['start'] ?? null) }}"
                            class="form-control {{$class['start']}}"
@@ -36,7 +36,7 @@
 
                 <div class="input-group">
                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                    <input type="text"
+                    <input
                            name="{{$name['end']}}"
                            value="{{ old($column['end'], $value['end'] ?? null) }}"
                            class="form-control {{$class['end']}}"
