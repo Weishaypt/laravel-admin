@@ -497,8 +497,8 @@ trait UploadField
             $this->destroyThumbnail();
         }
 
-        if ($this->storage->exists($this->original)) {
-            $this->storage->delete($this->original);
+        if ($this->storage->exists((string)$this->original)) {
+            $this->storage->delete((string)$this->original);
         }
     }
 
