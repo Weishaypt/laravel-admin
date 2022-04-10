@@ -13,6 +13,33 @@ class CkEditor extends Field
     protected static $js = [
         '/vendor/laravel-admin/admin/ckeditor/ckeditor.js',
     ];
+
+    /**
+     * Default rows of textarea.
+     *
+     * @var int
+     */
+    protected $rows = 5;
+
+    /**
+     * @var string
+     */
+    protected $append = '';
+
+    /**
+     * Set rows of textarea.
+     *
+     * @param int $rows
+     *
+     * @return $this
+     */
+    public function rows($rows = 5)
+    {
+        $this->rows = $rows;
+
+        return $this;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -36,6 +63,9 @@ $(document).ready(function() {
 });
 JS;
 
-        return parent::render();
+        return parent::fieldRender([
+            'append' => $this->append,
+            'rows'   => $this->rows,
+        ]);
     }
 }
