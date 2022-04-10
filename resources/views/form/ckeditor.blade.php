@@ -6,7 +6,7 @@
 
         @include('admin::form.error')
 
-        <div class="editor editor-{{ $name }}">
+        <div class="editor editor-{{ $id }}">
             {{ old($column, $value) }}
         </div>
 
