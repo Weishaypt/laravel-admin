@@ -18,22 +18,14 @@ class CkEditor extends Field
      */
     public function render()
     {
-        $this->script = <<<'EOT'
+        $this->script = <<<JS
 $(document).ready(function() {
   ClassicEditor
-    .create( document.querySelector( '.editor' ), {
-      
+    .create( document.querySelector( '.editor-{$this->id}' ), {
       licenseKey: '',
-      
-      
-      
     } )
     .then( editor => {
       window.editor = editor;
-  
-      
-      
-      
     } )
     .catch( error => {
       console.error( 'Oops, something went wrong!' );
@@ -42,8 +34,7 @@ $(document).ready(function() {
       console.error( error );
     } );
 });
-
-EOT;
+JS;
 
         return parent::render();
     }
