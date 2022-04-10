@@ -7,7 +7,7 @@
         @include('admin::form.error')
 
         <div class="editor editor-{{ $id }}">
-            {{ old($column, $value) }}
+            {!! old($column, $value) !!}
         </div>
 
         {{--<textarea name="{{$name}}" class="form-control {{$class}}" rows="{{ $rows }}" placeholder="{{ $placeholder }}" {!! $attributes !!} >{{ old($column, $value) }}</textarea>--}}
