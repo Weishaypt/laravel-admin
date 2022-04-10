@@ -16,6 +16,7 @@ use Illuminate\Support\Arr;
  * @method Field\Select         select($column, $label = '')
  * @method Field\MultipleSelect multipleSelect($column, $label = '')
  * @method Field\Textarea       textarea($column, $label = '')
+ * @method Field\CkEditor       ckeditor($column, $label = '')
  * @method Field\Hidden         hidden($column, $label = '')
  * @method Field\Id             id($column, $label = '')
  * @method Field\Ip             ip($column, $label = '')
@@ -104,6 +105,7 @@ trait HasFields
         'switch'            => Field\SwitchField::class,
         'text'              => Field\Text::class,
         'textarea'          => Field\Textarea::class,
+        'ckeditor'          => Field\CkEditor::class,
         'time'              => Field\Time::class,
         'timeRange'         => Field\TimeRange::class,
         'url'               => Field\Url::class,
