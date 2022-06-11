@@ -25,11 +25,26 @@ class Date extends Text
         if ($value === '') {
             $value = null;
         }
-        else {
-            $value = date('c', strtotime($value));
-        }
 
         return $value;
+    }
+
+    /**
+     * Set or get value of the field.
+     *
+     * @param null $value
+     *
+     * @return mixed
+     */
+    public function value($value = null)
+    {
+        if ($value === null) {
+            return $this->value ?? $this->getDefault();
+        }
+
+        $this->value = date('c', strtotime($value));
+
+        return $this;
     }
 
     public function render()
