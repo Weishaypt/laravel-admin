@@ -25,6 +25,9 @@ class Date extends Text
         if ($value === '') {
             $value = null;
         }
+        else {
+            $value = date('c', strtotime($value));
+        }
 
         return $value;
     }
@@ -34,7 +37,7 @@ class Date extends Text
         $this->options['format'] = $this->format;
         $this->options['locale'] = array_key_exists('locale', $this->options) ? $this->options['locale'] : config('app.locale');
         $this->options['allowInputToggle'] = true;
-
+        $this->defaultAttribute('type' , 'date-local');
         $this->prepend('<i class="fa fa-calendar fa-fw"></i>')
             ->defaultAttribute('style', 'width: 110px');
 
