@@ -29,30 +29,11 @@ class Date extends Text
         return $value;
     }
 
-    /**
-     * Set or get value of the field.
-     *
-     * @param null $value
-     *
-     * @return mixed
-     */
-    public function value($value = null)
-    {
-        if ($value === null) {
-            return $this->value ?? $this->getDefault();
-        }
-
-        $this->value = date('c', strtotime($value));
-
-        return $this;
-    }
-
     public function render()
     {
         $this->options['format'] = $this->format;
         $this->options['locale'] = array_key_exists('locale', $this->options) ? $this->options['locale'] : config('app.locale');
         $this->options['allowInputToggle'] = true;
-        $this->defaultAttribute('type' , 'date-local');
         $this->prepend('<i class="fa fa-calendar fa-fw"></i>')
             ->defaultAttribute('style', 'width: 110px');
 
