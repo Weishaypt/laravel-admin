@@ -5,10 +5,11 @@ namespace Encore\Admin\Form\Field;
 class Date extends Text
 {
     protected static $css = [
+        '/vendor/laravel-admin/datetimepicker/datepicker.css',
     ];
 
     protected static $js = [
-        '/vendor/laravel-admin/moment/min/moment-with-locales.min.js',
+        '/vendor/laravel-admin/datetimepicker/datepicker.js',
     ];
 
     protected $format = 'YYYY-MM-DD';
@@ -34,6 +35,10 @@ class Date extends Text
         $this->options['format'] = $this->format;
         $this->options['locale'] = array_key_exists('locale', $this->options) ? $this->options['locale'] : config('app.locale');
         $this->options['allowInputToggle'] = true;
+        $this->options['inline'] = true;
+
+        $this->script = "new Datepicker('{$this->getElementClassSelector()}', JSON.parse(".json_encode($this->options)."))";
+
         $this->prepend('<i class="fa fa-calendar fa-fw"></i>')
             ->defaultAttribute('style', 'width: 110px');
 
