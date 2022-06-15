@@ -10,6 +10,10 @@
   border: 0;
 }
 
+.datepicker tr {
+  background: #fff !important;
+}
+
 .datepicker table th,
 .datepicker table td {
   width: calc(100% / 7);
