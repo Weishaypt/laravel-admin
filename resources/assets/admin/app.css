@@ -9954,7 +9954,7 @@ small {
 }
 
 body.dark table tr {
-  background: #2c2d32 !important;
+  background: #2c2d32;
 }
 
 .input-group-text {

@@ -2,6 +2,8 @@
 
 namespace Encore\Admin\Form\Field;
 
+use Carbon\Carbon;
+
 class Date extends Text
 {
     protected static $css = [
@@ -12,7 +14,7 @@ class Date extends Text
         '/vendor/laravel-admin/datetimepicker/datepicker.js',
     ];
 
-    protected $format = 'YYYY-MM-DD';
+    protected $format = 'MM-DD-YYYY';
 
     public function format($format)
     {
@@ -32,7 +34,10 @@ class Date extends Text
 
     public function render()
     {
-        $this->script = "new Datepicker('{$this->getElementClassSelector()}', ".json_encode($this->options).");";
+        $value = $this->value;
+        $this->value = '';
+        $datepicker_name = 'datepicker_' . $this->id . '_' . time();
+        $this->script = "let {$datepicker_name} = new Datepicker('{$this->getElementClassSelector()}', ".json_encode($this->options)."); {$datepicker_name}[0].setDate(new Date('{$value}'));";
 
         $this->prepend('<i class="fa fa-calendar fa-fw"></i>')
             ->defaultAttribute('style', 'width: 110px');
