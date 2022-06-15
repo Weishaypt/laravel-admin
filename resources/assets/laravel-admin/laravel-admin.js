@@ -1,4 +1,4 @@
-$.fn.editable.defaults.params = function (params) {
+/*$.fn.editable.defaults.params = function (params) {
     params._token = LA.token;
     params._editable = 1;
     params._method = 'PUT';
@@ -13,7 +13,7 @@ $.fn.editable.defaults.error = function (data) {
         });
     }
     return msg
-};
+};*/
 
 toastr.options = {
     closeButton: true,
