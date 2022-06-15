@@ -34,10 +34,8 @@ class Date extends Text
 
     public function render()
     {
-        $value = $this->value;
-        $this->value = '';
-        $datepicker_name = 'datepicker_' . $this->id . '_' . time();
-        $this->script = "let {$datepicker_name} = new Datepicker('{$this->getElementClassSelector()}', ".json_encode($this->options)."); {$datepicker_name}[0].setDate(new Date('{$value}'));";
+
+        $this->script = "datepicker('{$this->getElementClassSelector()}');";
 
         $this->prepend('<i class="fa fa-calendar fa-fw"></i>')
             ->defaultAttribute('style', 'width: 110px');
