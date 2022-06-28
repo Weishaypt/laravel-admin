@@ -31,19 +31,13 @@ class Image extends File
             return parent::prepare($image);
         }
 
-        if (request()->has(static::FILE_DELETE_FLAG)) {
+        /*if (request()->has(static::FILE_DELETE_FLAG)) {
             return $this->destroy();
-        }
+        }*/
 
         $this->name = $this->getStoreName($image);
 
-        $this->callInterventionMethods($image->getRealPath());
-
-        $path = $this->uploadAndDeleteOriginal($image);
-
-        $this->uploadAndDeleteOriginalThumbnail($image);
-
-        return $path;
+        return $this->upload($image);
     }
 
     /**
