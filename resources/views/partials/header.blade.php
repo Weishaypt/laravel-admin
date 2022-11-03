@@ -26,6 +26,8 @@
 
         {!! Admin::getNavbar()->render() !!}
 
+
+
         <!-- User Account Menu -->
           <li class="dropdown nav-item user user-menu">
             <!-- Menu Toggle Button -->

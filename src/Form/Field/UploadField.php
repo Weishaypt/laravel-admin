@@ -31,6 +31,8 @@ trait UploadField
      */
     protected $storage = '';
 
+    protected $customUrl = '';
+
     /**
      * If use unique name to store upload file.
      *
@@ -263,6 +265,11 @@ trait UploadField
         return $this;
     }
 
+    public function custom_url(\Closure $closure) {
+        $this->customUrl = $closure;
+        return $this;
+    }
+
     /**
      * Specify the directory and name for upload file.
      *
@@ -442,6 +449,9 @@ trait UploadField
         }
 
         if ($this->storage) {
+            if($this->customUrl) {
+                return $this->customUrl($path);
+            }
             return $this->storage->url($path);
         }
 

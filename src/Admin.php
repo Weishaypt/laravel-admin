@@ -5,6 +5,10 @@ namespace Encore\Admin;
 use Closure;
 use Encore\Admin\Auth\Database\Menu;
 use Encore\Admin\Controllers\AuthController;
+use Encore\Admin\Controllers\NotificationDeleteController;
+use Encore\Admin\Controllers\NotificationIndexController;
+use Encore\Admin\Controllers\NotificationReadAllController;
+use Encore\Admin\Controllers\NotificationReadController;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Traits\HasAssets;
 use Encore\Admin\Widgets\Navbar;
@@ -337,6 +341,11 @@ class Admin
             $router->get('auth/logout', $authController.'@getLogout')->name('admin.logout');
             $router->get('auth/setting', $authController.'@getSetting')->name('admin.setting');
             $router->put('auth/setting', $authController.'@putSetting');
+
+            $router->get('/notifications', NotificationIndexController::class);
+            $router->post('/notifications/read-all', NotificationReadAllController::class);
+            $router->post('/notifications/{notification}/read', NotificationReadController::class);
+            $router->delete('/notifications/{notification}/delete', NotificationDeleteController::class);
         });
     }
 
